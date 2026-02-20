@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Automatizaciones Pro</title>
+<link rel="stylesheet" href="styles.css">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="cursor" id="cur"></div>
+<div class="cursor-f" id="curf"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="logo">AP<span>.</span></div>
+  <div class="nav-links">
+    <a href="#quienes">Quienes Somos</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#productos">Productos</a>
+    <a href="#proceso">Proceso</a>
+    <a href="#contacto">Contacto</a>
+    <a href="#contacto" class="nav-cta">Solicitar asesoria &rarr;</a>
+  </div>
+  <div class="nav-right">
+    <button class="theme-btn" id="themeBtn" title="Cambiar tema">
+      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    </button>
+    <button class="hamburger" id="hbg">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mob">
+  <a href="#quienes" onclick="closeMob()">Quienes Somos</a>
+  <a href="#servicios" onclick="closeMob()">Servicios</a>
+  <a href="#productos" onclick="closeMob()">Productos</a>
+  <a href="#proceso" onclick="closeMob()">Proceso</a>
+  <a href="#contacto" onclick="closeMob()">Contacto</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <div class="grid-lines"></div>
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge reveal">
+      <span class="badge-dot"></span>
+      Disponible para nuevos proyectos
+    </div>
+    <h1 class="reveal d1">
+      Automatizacion<br>
+      <em>inteligente</em> para<br>
+      tu negocio.
+    </h1>
+    <p class="hero-sub reveal d2">
+      Eliminamos tareas repetitivas y optimizamos tus procesos para que puedas enfocarte en lo que realmente importa.
+    </p>
+    <div class="hero-actions reveal d3">
+      <a href="#contacto" class="btn">Solicitar asesoria</a>
+      <a href="#servicios" class="btn ghost">Ver servicios &darr;</a>
+    </div>
+    <div class="hero-stats reveal d4">
+      <div class="stat">
+        <span class="stat-n" data-to="150">0</span><span class="stat-u">+</span>
+        <span class="stat-l">Proyectos</span>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat">
+        <span class="stat-n" data-to="98">0</span><span class="stat-u">%</span>
+        <span class="stat-l">Satisfaccion</span>
+      </div>
+      <div class="stat-div"></div>
+      <div class="stat">
+        <span class="stat-n" data-to="40">0</span><span class="stat-u">h</span>
+        <span class="stat-l">Ahorradas / semana</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- QUIENES SOMOS -->
+<section id="quienes" class="sec-about">
+  <div class="about-inner">
+    <div class="about-text">
+      <div class="tag reveal">01 &mdash; Quienes Somos</div>
+      <h2 class="reveal d1">Transformamos operaciones en <span style="color:var(--accent)">ventajas competitivas.</span></h2>
+      <p class="reveal d2">Somos una empresa especializada en automatizaciones empresariales. Ayudamos a negocios a eliminar tareas repetitivas y mejorar su eficiencia mediante tecnologia inteligente, conectando herramientas y procesos para que tu equipo trabaje con el maximo rendimiento.</p>
+      <a href="#contacto" class="btn reveal d3">Hablar con un experto</a>
+    </div>
+    <div class="about-vis reveal d2">
+      <div class="vcard">
+        <div class="vcard-head">
+          <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+          <span>workflow.json</span>
+        </div>
+        <div class="vcard-body">
+          <div class="cl"><span class="ck">"trigger"</span><span class="cc"> : </span><span class="cv">"Nuevo lead CRM"</span></div>
+          <div class="cl"><span class="ck">"action_1"</span><span class="cc"> : </span><span class="cv">"Notificar equipo"</span></div>
+          <div class="cl"><span class="ck">"action_2"</span><span class="cc"> : </span><span class="cv">"Crear tarea"</span></div>
+          <div class="cl"><span class="ck">"action_3"</span><span class="cc"> : </span><span class="cv">"Enviar email"</span></div>
+          <div class="cl"><span class="ck">"status"</span><span class="cc"> : </span><span class="cg">"&#10003; Activo"</span></div>
+        </div>
+        <div class="vcard-foot">
+          <span class="badge-live"><span class="badge-dot"></span>Ejecutando en tiempo real</span>
+        </div>
+      </div>
+      <div class="fbadge fb1">&#10003; 3 tareas automatizadas</div>
+      <div class="fbadge fb2">&#9889; 12h ahorradas hoy</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" class="sec-services">
+  <div class="sec-head">
+    <div class="tag reveal">02 &mdash; Servicios</div>
+    <h2 class="reveal d1">Lo que hacemos por ti</h2>
+  </div>
+  <div class="svc-grid">
+    <div class="svc-card reveal">
+      <div class="sc-ico">&#9881;</div>
+      <div class="sc-num">01</div>
+      <h3>Automatizacion de Procesos</h3>
+      <p>Optimizamos flujos internos y eliminamos tareas repetitivas que consumen el tiempo de tu equipo.</p>
+      <div class="sc-tags"><span>Zapier</span><span>Make</span><span>n8n</span></div>
+    </div>
+    <div class="svc-card reveal d1">
+      <div class="sc-ico">&#128279;</div>
+      <div class="sc-num">02</div>
+      <h3>Integraciones</h3>
+      <p>Conectamos todas tus herramientas y plataformas digitales para que trabajen como un solo sistema.</p>
+      <div class="sc-tags"><span>APIs</span><span>Webhooks</span><span>Cloud</span></div>
+    </div>
+    <div class="svc-card reveal d2">
+      <div class="sc-ico">&#128202;</div>
+      <div class="sc-num">03</div>
+      <h3>CRM y Embudos</h3>
+      <p>Implementamos sistemas automatizados de ventas y seguimiento para maximizar tus conversiones.</p>
+      <div class="sc-tags"><span>HubSpot</span><span>Pipedrive</span><span>Notion</span></div>
+    </div>
+    <div class="svc-card svc-feat reveal d3">
+      <div class="sc-ico">&#129302;</div>
+      <div class="sc-num">04</div>
+      <div class="feat-badge">Nuevo</div>
+      <h3>IA Aplicada</h3>
+      <p>Incorporamos inteligencia artificial en tus procesos para tomar decisiones mas rapidas e inteligentes.</p>
+      <div class="sc-tags"><span>ChatGPT</span><span>Claude</span><span>Custom</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTOS -->
+<section id="productos" class="sec-products">
+  <div class="sec-head">
+    <div class="tag reveal">03 &mdash; Nuestros Productos</div>
+    <h2 class="reveal d1">Soluciones listas para usar</h2>
+    <p class="sec-sub reveal d2">Productos de IA desarrollados por nosotros, listos para integrarse en tu negocio desde el primer dia.</p>
+  </div>
+  <div class="accordion">
+
+    <!-- ChristIAn -->
+    <div class="pitem open" data-pi>
+      <div class="pthumb">
+        <div class="pvis vis-christian">
+          <div class="cbubble cb-in"><span>Hola, quiero pedir cita</span></div>
+          <div class="cbubble cb-out"><span>Claro! Para cuando?</span></div>
+          <div class="cbubble cb-in"><span>Manana tarde</span></div>
+          <div class="cbubble cb-out"><span>&#10003; Cita a las 17:00</span></div>
+        </div>
+        <div class="pinfo">
+          <div class="ptype">Chatbot</div>
+          <div class="pname">ChristIAn</div>
+        </div>
+      </div>
+      <div class="pexpand">
+        <div class="pinner">
+          <div class="pbadge">Chatbot &middot; WhatsApp &amp; Web</div>
+          <h3>ChristIAn</h3>
+          <p class="ptagline">Tu asistente inteligente que nunca duerme.</p>
+          <p class="pdesc">ChristIAn es el chatbot perfecto para no tener que estar pendiente todo el dia contestando mensajes. Agenda, cancela y reagenda citas de forma autonoma, envia emails de confirmacion automaticos y recordatorios 24 horas antes de cada cita.</p>
+          <div class="pfeats">
+            <div class="pfeat"><span class="pfi">&#128197;</span><span>Agenda, cancela y reagenda</span></div>
+            <div class="pfeat"><span class="pfi">&#128231;</span><span>Emails de confirmacion</span></div>
+            <div class="pfeat"><span class="pfi">&#9200;</span><span>Recordatorios 24h antes</span></div>
+            <div class="pfeat"><span class="pfi">&#127769;</span><span>Disponible 24/7</span></div>
+            <div class="pfeat"><span class="pfi">&#128172;</span><span>WhatsApp, web y mas</span></div>
+          </div>
+          <a href="#contacto" class="btn pcta">Quiero ChristIAn &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ConsciencIA -->
+    <div class="pitem" data-pi>
+      <div class="pthumb">
+        <div class="pvis vis-consciencia">
+          <div class="vwave">
+            <div class="wbar"></div><div class="wbar"></div><div class="wbar"></div>
+            <div class="wbar"></div><div class="wbar"></div><div class="wbar"></div><div class="wbar"></div>
+          </div>
+          <div class="vstatus"><span class="vdot"></span>En curso...</div>
+          <div class="vlines"><div class="vline"></div><div class="vline short"></div></div>
+        </div>
+        <div class="pinfo">
+          <div class="ptype">VoiceBot</div>
+          <div class="pname">ConsciencIA</div>
+        </div>
+      </div>
+      <div class="pexpand">
+        <div class="pinner">
+          <div class="pbadge">VoiceBot &middot; Telefonia IA</div>
+          <h3>ConsciencIA</h3>
+          <p class="ptagline">La voz de tu empresa, siempre disponible.</p>
+          <p class="pdesc">ConsciencIA atiende a todos tus clientes por telefono con voz natural y profesional. Disenado para crecer contigo: amplia sus capacidades y actualiza sus respuestas cuando quieras, sin programacion.</p>
+          <div class="pfeats">
+            <div class="pfeat"><span class="pfi">&#128222;</span><span>Llamadas entrantes 24/7</span></div>
+            <div class="pfeat"><span class="pfi">&#127897;</span><span>Voz natural</span></div>
+            <div class="pfeat"><span class="pfi">&#128295;</span><span>Ampliable</span></div>
+            <div class="pfeat"><span class="pfi">&#128202;</span><span>Registro de llamadas</span></div>
+            <div class="pfeat"><span class="pfi">&#128260;</span><span>Transfer a humano</span></div>
+          </div>
+          <a href="#contacto" class="btn pcta">Quiero ConsciencIA &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Proximamente -->
+    <div class="pitem soon" data-pi>
+      <div class="pthumb">
+        <div class="pvis vis-soon">
+          <div class="soon-star">&#10022;</div>
+          <div class="soon-dots"><span></span><span></span><span></span></div>
+        </div>
+        <div class="pinfo">
+          <div class="ptype">Proximamente</div>
+          <div class="pname">???</div>
+        </div>
+      </div>
+      <div class="pexpand">
+        <div class="pinner">
+          <div class="pbadge">En desarrollo</div>
+          <h3>Algo nuevo viene</h3>
+          <p class="ptagline">Estamos trabajando en la siguiente solucion.</p>
+          <p class="pdesc">Tenemos nuevos productos en camino. Suscribete a nuestra newsletter para ser el primero en enterarte cuando lancemos nuestra proxima automatizacion.</p>
+          <a href="#contacto" class="btn pcta">Avisarme &rarr;</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESO -->
+<section id="proceso" class="sec-process">
+  <div class="sec-head">
+    <div class="tag reveal">04 &mdash; Proceso</div>
+    <h2 class="reveal d1">Como trabajamos juntos</h2>
+    <p class="sec-sub reveal d2">Un metodo probado para llevar tu negocio al siguiente nivel en semanas, no meses.</p>
+  </div>
+  <div class="steps">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <div class="step-box">
+        <div class="step-ico">&#128172;</div>
+        <h3>Primera Reunion</h3>
+        <p>Analizamos tus necesidades, objetivos y el estado actual de tus operaciones.</p>
+      </div>
+      <div class="step-conn"></div>
+    </div>
+    <div class="step reveal d1">
+      <div class="step-num">02</div>
+      <div class="step-box">
+        <div class="step-ico">&#128269;</div>
+        <h3>Auditoria</h3>
+        <p>Evaluamos tus procesos actuales e identificamos oportunidades de mejora.</p>
+      </div>
+      <div class="step-conn"></div>
+    </div>
+    <div class="step reveal d2">
+      <div class="step-num">03</div>
+      <div class="step-box">
+        <div class="step-ico">&#127919;</div>
+        <h3>Consulta</h3>
+        <p>Disenamos una solucion personalizada con roadmap claro y metricas definidas.</p>
+      </div>
+      <div class="step-conn"></div>
+    </div>
+    <div class="step reveal d3">
+      <div class="step-num">04</div>
+      <div class="step-box">
+        <div class="step-ico">&#128640;</div>
+        <h3>Implementacion</h3>
+        <p>Automatizamos y optimizamos tu sistema con soporte continuo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="sec-contact">
+  <div class="contact-inner">
+    <div class="contact-info">
+      <div class="tag reveal">05 &mdash; Contacto</div>
+      <h2 class="reveal d1">Listo para automatizar?</h2>
+      <p class="reveal d2">Cuentanos sobre tu negocio y te mostraremos exactamente como podemos ayudarte.</p>
+      <div class="cdetails reveal d3">
+        <div class="citem"><span>&#128231;</span><span>hola@automatizacionespro.com</span></div>
+        <div class="citem"><span>&#128241;</span><span>+34 600 000 000</span></div>
+        <div class="citem"><span>&#8987;</span><span>Respuesta en menos de 24h</span></div>
+      </div>
+    </div>
+    <div class="cform-wrap reveal d2">
+      <form id="cform">
+        <div class="frow">
+          <div class="fgroup">
+            <label>Nombre</label>
+            <input type="text" placeholder="Tu nombre" required>
+          </div>
+          <div class="fgroup">
+            <label>Empresa</label>
+            <input type="text" placeholder="Tu empresa">
+          </div>
+        </div>
+        <div class="fgroup">
+          <label>Email</label>
+          <input type="email" placeholder="tu@email.com" required>
+        </div>
+        <div class="fgroup">
+          <label>Mensaje</label>
+          <textarea placeholder="Cuentanos sobre tu proyecto..." required></textarea>
+        </div>
+        <button type="submit" class="btn full">Enviar mensaje &rarr;</button>
+      </form>
+      <div class="form-ok" id="formOk">
+        <div class="form-ok-ico">&#10003;</div>
+        <h3>Mensaje enviado!</h3>
+        <p>Te contactaremos en menos de 24 horas.</p>
+      </div>
+      <div class="nl-wrap">
+        <h4>Newsletter semanal</h4>
+        <p>Tips de automatizacion directo a tu bandeja.</p>
+        <form id="nlform" class="nl-form">
+          <input type="email" placeholder="Tu correo electronico" required>
+          <button type="submit" class="btn">Suscribirme</button>
+        </form>
+        <div class="nl-ok" id="nlOk">Suscrito correctamente! &#127881;</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <div class="logo">AP<span>.</span></div>
+      <p>Transformando negocios con automatizacion inteligente.</p>
+    </div>
+    <div class="foot-links">
+      <a href="#quienes">Quienes Somos</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#productos">Productos</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>&copy; 2026 Automatizaciones Pro</span>
+    <span>Disenado con precision &#10022;</span>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
