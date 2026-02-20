@@ -160,4 +160,24 @@
     card.addEventListener('mouseleave', function() { card.style.transform = ''; });
   });
 
+  document.getElementById("cform").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const formData = new FormData(this);
+
+  try {
+    await fetch("https://kevindemetrio-n8nrag.app.n8n.cloud/webhook-test/form-submission", {
+      method: "POST",
+      body: formData
+    });
+
+    document.getElementById("formOk").classList.add("show");
+    this.reset();
+
+  } catch (error) {
+    alert("Error enviando el formulario");
+    console.error(error);
+  }
+});
+
 })();
