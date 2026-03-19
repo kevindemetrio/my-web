@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Automatizaciones Pro</title>
+<title>Automatizaciones Pro — Automatización Inteligente para tu Negocio</title>
+<meta name="description" content="Eliminamos tareas repetitivas y optimizamos tus procesos con automatización inteligente, chatbots, voicebots e IA aplicada. Solicita tu asesoría gratuita.">
+<meta property="og:title" content="Automatizaciones Pro — Haz inteligente a tu negocio">
+<meta property="og:description" content="Automatización de procesos, chatbots, voicebots e inteligencia artificial aplicada para empresas.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#060a12">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="styles.css">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
@@ -13,20 +23,20 @@
 <div class="cursor-f" id="curf"></div>
 
 <!-- NAV -->
-<nav id="navbar">
-  <div class="logo">AP<span>.</span></div>
+<nav id="navbar" role="navigation" aria-label="Navegación principal">
+  <a href="#" class="logo" aria-label="Automatizaciones Pro — Inicio">AP<span>.</span></a>
   <div class="nav-links">
-    <a href="#quienes">Quienes Somos</a>
+    <a href="#quienes">Quiénes Somos</a>
     <a href="#servicios">Servicios</a>
     <a href="#productos">Productos</a>
     <a href="#proceso">Proceso</a>
     <a href="#contacto">Contacto</a>
-    <a href="#contacto" class="nav-cta">Solicitar asesoria &rarr;</a>
+    <a href="#contacto" class="nav-cta">Solicitar asesoría &rarr;</a>
   </div>
   <div class="nav-right">
-    <button class="theme-btn" id="themeBtn" title="Cambiar tema">
-      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
-      <svg class="icon-sun" viewBox="0 0 24 24">
+    <button class="theme-btn" id="themeBtn" aria-label="Cambiar entre tema claro y oscuro" title="Cambiar tema">
+      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
         <circle cx="12" cy="12" r="5"/>
         <line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/>
         <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
@@ -34,14 +44,14 @@
         <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
       </svg>
     </button>
-    <button class="hamburger" id="hbg">
+    <button class="hamburger" id="hbg" aria-label="Abrir menú de navegación" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </nav>
 
-<div class="mobile-menu" id="mob">
-  <a href="#quienes" onclick="closeMob()">Quienes Somos</a>
+<div class="mobile-menu" id="mob" role="dialog" aria-label="Menú móvil">
+  <a href="#quienes" onclick="closeMob()">Quiénes Somos</a>
   <a href="#servicios" onclick="closeMob()">Servicios</a>
   <a href="#productos" onclick="closeMob()">Productos</a>
   <a href="#proceso" onclick="closeMob()">Proceso</a>
@@ -49,15 +59,15 @@
 </div>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-bg">
+<section class="hero" aria-label="Presentación principal">
+  <div class="hero-bg" aria-hidden="true">
     <div class="grid-lines"></div>
     <div class="blob blob1"></div>
     <div class="blob blob2"></div>
   </div>
   <div class="hero-content">
     <div class="hero-badge reveal">
-      <span class="badge-dot"></span>
+      <span class="badge-dot" aria-hidden="true"></span>
       Disponible para nuevos proyectos
     </div>
     <h1 class="reveal d1">
@@ -69,46 +79,46 @@
       Eliminamos tareas repetitivas y optimizamos tus procesos para que puedas enfocarte en lo que realmente importa.
     </p>
     <div class="hero-actions reveal d3">
-      <a href="#contacto" class="btn">Solicitar asesoria</a>
+      <a href="#contacto" class="btn">Solicitar asesoría</a>
       <a href="#servicios" class="btn ghost">Ver servicios &darr;</a>
     </div>
     <div class="hero-stats reveal d4">
       <div class="stat">
-        <span class="stat-n" data-to="5">0</span><span class="stat-u">+</span>
-        <span class="stat-l">Proyectos</span>
-      </div>
-      <div class="stat-div"></div>
-      <div class="stat">
         <span class="stat-n" data-to="98">0</span><span class="stat-u">%</span>
-        <span class="stat-l">Satisfaccion</span>
+        <span class="stat-l">Satisfacción</span>
       </div>
       <div class="stat-div"></div>
       <div class="stat">
         <span class="stat-n" data-to="40">0</span><span class="stat-u">h</span>
         <span class="stat-l">Ahorradas / semana</span>
       </div>
+      <div class="stat-div"></div>
+      <div class="stat">
+        <span class="stat-n" data-to="24">0</span><span class="stat-u">/7</span>
+        <span class="stat-l">Disponibilidad</span>
+      </div>
     </div>
   </div>
-  <div class="hero-scroll">
+  <div class="hero-scroll" aria-hidden="true">
     <span>Scroll</span>
     <div class="scroll-line"></div>
   </div>
 </section>
 
-<!-- QUIENES SOMOS -->
+<!-- QUIÉNES SOMOS -->
 <section id="quienes" class="sec-about">
   <div class="about-inner">
     <div class="about-text">
-      <div class="tag reveal">01 &mdash; Quienes Somos</div>
+      <div class="tag reveal">01 &mdash; Quiénes Somos</div>
       <h2 class="reveal d1">Transformamos problemas en <span style="color:var(--accent)">ventajas competitivas.</span></h2>
-      <p class="reveal d2">Somos una empresa especializada en automatizaciones empresariales. Ayudamos a negocios a eliminar tareas repetitivas y mejorar su eficiencia mediante tecnologia inteligente, conectando herramientas y procesos para que tu equipo trabaje con el maximo rendimiento.</p>
+      <p class="reveal d2">Somos una empresa especializada en automatizaciones empresariales. Ayudamos a negocios a eliminar tareas repetitivas y mejorar su eficiencia mediante tecnología inteligente, conectando herramientas y procesos para que tu equipo trabaje con el máximo rendimiento.</p>
       <a href="#contacto" class="btn reveal d3">Hablar con un experto</a>
     </div>
     <div class="about-vis reveal d2">
       <div class="vcard">
-        <div class="vcard-head">
+        <div class="vcard-head" aria-hidden="true">
           <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
-          <span>automatizacinn.json</span>
+          <span>automatizacion.json</span>
         </div>
         <div class="vcard-body">
           <div class="cl"><span class="ck">"trigger"</span><span class="cc"> : </span><span class="cv">"Nueva llamada"</span></div>
@@ -118,11 +128,17 @@
           <div class="cl"><span class="ck">"status"</span><span class="cc"> : </span><span class="cg">"&#10003; Activo"</span></div>
         </div>
         <div class="vcard-foot">
-          <span class="badge-live"><span class="badge-dot"></span>Ejecutando en tiempo real</span>
+          <span class="badge-live"><span class="badge-dot" aria-hidden="true"></span>Ejecutando en tiempo real</span>
         </div>
       </div>
-      <div class="fbadge fb1">&#10003; 3 tareas automatizadas</div>
-      <div class="fbadge fb2">&#9889; 12h ahorradas hoy</div>
+      <div class="fbadge fb1" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        3 tareas automatizadas
+      </div>
+      <div class="fbadge fb2" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--yellow)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        12h ahorradas hoy
+      </div>
     </div>
   </div>
 </section>
@@ -135,39 +151,40 @@
   </div>
   <div class="svc-grid">
     <div class="svc-card reveal">
-      <div class="sc-ico">&#9881;</div>
-      <div class="sc-num">01</div>
-      <h3>Automatizacion de Procesos</h3>
+      <div class="sc-ico" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      </div>
+      <div class="sc-num" aria-hidden="true">01</div>
+      <h3>Automatización de Procesos</h3>
       <p>Optimizamos flujos internos y eliminamos tareas repetitivas que consumen el tiempo de tu equipo.</p>
       <div class="sc-tags"><span>Chatbots</span><span>Voicebots</span><span>n8n</span><span>OpenAI</span><span>Supabase</span></div>
     </div>
     <div class="svc-card reveal d1">
-      <div class="sc-ico">&#128279;</div>
-      <div class="sc-num">02</div>
+      <div class="sc-ico" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+      </div>
+      <div class="sc-num" aria-hidden="true">02</div>
       <h3>Integraciones</h3>
       <p>Conectamos todas tus herramientas y plataformas digitales para que trabajen como un solo sistema.</p>
       <div class="sc-tags"><span>APIs</span><span>Webhooks</span><span>Cloud</span></div>
     </div>
     <div class="svc-card reveal d2">
-      <div class="sc-ico">&#128202;</div>
-      <div class="sc-num">03</div>
+      <div class="sc-ico" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <div class="sc-num" aria-hidden="true">03</div>
       <h3>Webs</h3>
       <p>Creamos y alojamos webs personalizadas para cada empresa para maximizar tus conversiones.</p>
       <div class="sc-tags"><span>Cloudflare</span><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
     </div>
-    <!--<div class="svc-card reveal d2">-->
-    <!--  <div class="sc-ico">&#128202;</div>-->
-    <!--  <div class="sc-num">03</div>-->
-    <!--  <h3>CRM y Embudos</h3>-->
-    <!--  <p>Implementamos sistemas automatizados de ventas y seguimiento para maximizar tus conversiones.</p>-->
-    <!--  <div class="sc-tags"><span>HubSpot</span><span>Pipedrive</span><span>Notion</span></div>-->
-    <!--</div>-->
     <div class="svc-card svc-feat reveal d3">
-      <div class="sc-ico">&#129302;</div>
-      <div class="sc-num">04</div>
+      <div class="sc-ico" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93L12 22"/><path d="M12 2a4 4 0 0 0-4 4c0 1.95 1.4 3.58 3.25 3.93"/><line x1="4.5" y1="9" x2="19.5" y2="9"/></svg>
+      </div>
+      <div class="sc-num" aria-hidden="true">04</div>
       <div class="feat-badge">Nuevo</div>
       <h3>IA Aplicada</h3>
-      <p>Incorporamos inteligencia artificial en tus procesos para tomar decisiones mas rapidas e inteligentes.</p>
+      <p>Incorporamos inteligencia artificial en tus procesos para tomar decisiones más rápidas e inteligentes.</p>
       <div class="sc-tags"><span>ChatGPT</span><span>Claude</span><span>Custom</span></div>
     </div>
   </div>
@@ -178,46 +195,48 @@
   <div class="sec-head">
     <div class="tag reveal">03 &mdash; Nuestros Productos</div>
     <h2 class="reveal d1">Soluciones listas para usar</h2>
-    <p class="sec-sub reveal d2">Productos de IA desarrollados por nosotros, listos para integrarse en tu negocio desde el primer dia.</p>
+    <p class="sec-sub reveal d2">Productos de IA desarrollados por nosotros, listos para integrarse en tu negocio desde el primer día.</p>
   </div>
-  <div class="accordion">
 
-    <!-- ChristIAn -->
-    <div class="pitem open" data-pi>
-      <div class="pthumb">
-        <div class="pvis vis-christian">
+  <!-- Carousel wrapper -->
+  <div class="carousel-wrap reveal d3">
+    <!-- Scroll hint arrows -->
+    <button class="carousel-arrow carousel-arrow--left" id="carLeft" aria-label="Anterior producto">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="carousel-arrow carousel-arrow--right" id="carRight" aria-label="Siguiente producto">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+
+    <div class="carousel-track" id="carouselTrack">
+
+      <!-- ChristIAn -->
+      <article class="pcard">
+        <div class="pcard-visual vis-christian" aria-hidden="true">
           <div class="cbubble cb-in"><span>Hola, quiero pedir cita</span></div>
-          <div class="cbubble cb-out"><span>Claro! Para cuando?</span></div>
-          <div class="cbubble cb-in"><span>Manana tarde</span></div>
+          <div class="cbubble cb-out"><span>¡Claro! ¿Para cuándo?</span></div>
+          <div class="cbubble cb-in"><span>Mañana tarde</span></div>
           <div class="cbubble cb-out"><span>&#10003; Cita a las 17:00</span></div>
         </div>
-        <div class="pinfo">
-          <div class="ptype">Chatbot</div>
-          <div class="pname">ChristIAn</div>
-        </div>
-      </div>
-      <div class="pexpand">
-        <div class="pinner">
+        <div class="pcard-body">
           <div class="pbadge">Chatbot &middot; WhatsApp &amp; Web</div>
           <h3>ChristIAn</h3>
           <p class="ptagline">Tu asistente inteligente que nunca duerme.</p>
-          <p class="pdesc">ChristIAn es el chatbot perfecto para no tener que estar pendiente todo el dia contestando mensajes. Agenda, cancela y reagenda citas de forma autonoma, envia emails de confirmacion automaticos y recordatorios 24 horas antes de cada cita.</p>
+          <p class="pdesc">Agenda, cancela y reagenda citas de forma autónoma. Envía emails de confirmación y recordatorios 24h antes de cada cita.</p>
           <div class="pfeats">
-            <div class="pfeat"><span class="pfi">&#128197;</span><span>Agenda, cancela y reagenda</span></div>
-            <div class="pfeat"><span class="pfi">&#128231;</span><span>Emails de confirmacion</span></div>
-            <div class="pfeat"><span class="pfi">&#9200;</span><span>Recordatorios 24h antes</span></div>
-            <div class="pfeat"><span class="pfi">&#127769;</span><span>Disponible 24/7</span></div>
-            <div class="pfeat"><span class="pfi">&#128172;</span><span>WhatsApp, web y mas</span></div>
+            <div class="pfeat"><span class="pfi" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span><span>Agenda, cancela y reagenda</span></div>
+            <div class="pfeat"><span class="pfi" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span><span>Emails de confirmación</span></div>
+            <div class="pfeat"><span class="pfi" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><span>Recordatorios 24h antes</span></div>
+            <div class="pfeat"><span class="pfi" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span><span>Disponible 24/7</span></div>
+            <div class="pfeat"><span class="pfi" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span>WhatsApp, web y más</span></div>
           </div>
           <a href="#contacto" class="btn pcta">Quiero ChristIAn &rarr;</a>
         </div>
-      </div>
-    </div>
+      </article>
 
-    <!-- ConsciencIA -->
-    <div class="pitem" data-pi>
-      <div class="pthumb">
-        <div class="pvis vis-consciencia">
+      <!-- ConsciencIA -->
+      <article class="pcard">
+        <div class="pcard-visual vis-consciencia" aria-hidden="true">
           <div class="vwave">
             <div class="wbar"></div><div class="wbar"></div><div class="wbar"></div>
             <div class="wbar"></div><div class="wbar"></div><div class="wbar"></div><div class="wbar"></div>
@@ -225,95 +244,156 @@
           <div class="vstatus"><span class="vdot"></span>En curso...</div>
           <div class="vlines"><div class="vline"></div><div class="vline short"></div></div>
         </div>
-        <div class="pinfo">
-          <div class="ptype">VoiceBot</div>
-          <div class="pname">ConsciencIA</div>
-        </div>
-      </div>
-      <div class="pexpand">
-        <div class="pinner">
-          <div class="pbadge">VoiceBot &middot; Telefonia IA</div>
+        <div class="pcard-body">
+          <div class="pbadge">VoiceBot &middot; Telefonía IA</div>
           <h3>ConsciencIA</h3>
           <p class="ptagline">La voz de tu empresa, siempre disponible.</p>
-          <p class="pdesc">ConsciencIA atiende a todos tus clientes por telefono con voz natural y profesional. Disenado para crecer contigo: amplia sus capacidades y actualiza sus respuestas cuando quieras, sin programacion.</p>
+          <p class="pdesc">Atiende a todos tus clientes por teléfono con voz natural y profesional. Amplía sus capacidades cuando quieras, sin programación.</p>
           <div class="pfeats">
-            <div class="pfeat"><span class="pfi">&#128222;</span><span>Llamadas entrantes 24/7</span></div>
-            <div class="pfeat"><span class="pfi">&#127897;</span><span>Voz natural</span></div>
-            <div class="pfeat"><span class="pfi">&#128295;</span><span>Ampliable</span></div>
-            <div class="pfeat"><span class="pfi">&#128202;</span><span>Registro de llamadas</span></div>
-            <div class="pfeat"><span class="pfi">&#128260;</span><span>Transfer a humano</span></div>
+            <div class="pfeat"><span class="pfi" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span>Llamadas entrantes 24/7</span></div>
+            <div class="pfeat"><span class="pfi" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></span><span>Voz natural</span></div>
+            <div class="pfeat"><span class="pfi" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span><span>Ampliable</span></div>
+            <div class="pfeat"><span class="pfi" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span><span>Registro de llamadas</span></div>
+            <div class="pfeat"><span class="pfi" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></span><span>Transfer a humano</span></div>
           </div>
           <a href="#contacto" class="btn pcta">Quiero ConsciencIA &rarr;</a>
         </div>
-      </div>
-    </div>
+      </article>
 
-    <!-- Proximamente -->
-    <div class="pitem soon" data-pi>
-      <div class="pthumb">
-        <div class="pvis vis-soon">
-          <div class="soon-star">&#10022;</div>
+      <!-- Próximamente -->
+      <article class="pcard pcard--soon">
+        <div class="pcard-visual vis-soon" aria-hidden="true">
+          <div class="soon-star">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
           <div class="soon-dots"><span></span><span></span><span></span></div>
         </div>
-        <div class="pinfo">
-          <div class="ptype">Proximamente</div>
-          <div class="pname">???</div>
-        </div>
-      </div>
-      <div class="pexpand">
-        <div class="pinner">
+        <div class="pcard-body">
           <div class="pbadge">En desarrollo</div>
           <h3>Algo nuevo viene</h3>
-          <p class="ptagline">Estamos trabajando en la siguiente solucion.</p>
-          <p class="pdesc">Tenemos nuevos productos en camino. Suscribete a nuestra newsletter para ser el primero en enterarte cuando lancemos nuestra proxima automatizacion.</p>
-          <a href="#contacto" class="btn pcta">Avisarme &rarr;</a>
+          <p class="ptagline">Estamos trabajando en la siguiente solución.</p>
+          <p class="pdesc">Tenemos nuevos productos en camino. Déjanos tus datos en el formulario de contacto para ser el primero en enterarte cuando lancemos nuestra próxima automatización.</p>
+          <a href="#contacto" class="btn pcta">Avísame &rarr;</a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Dot indicators -->
+    <div class="carousel-dots" id="carouselDots">
+      <button class="car-dot active" aria-label="Producto 1"></button>
+      <button class="car-dot" aria-label="Producto 2"></button>
+      <button class="car-dot" aria-label="Producto 3"></button>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section id="testimonios" class="sec-testimonials">
+  <div class="sec-head">
+    <div class="tag reveal">04 &mdash; Resultados</div>
+    <h2 class="reveal d1">Lo que dicen nuestros clientes</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card reveal">
+      <div class="tc-stars" aria-label="5 estrellas">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--yellow)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--yellow)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--yellow)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--yellow)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--yellow)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="tc-quote">&ldquo;Desde que implementamos ChristIAn, nuestro equipo ahorra más de 15 horas semanales en gestión de citas. Los clientes están encantados con la rapidez.&rdquo;</p>
+      <div class="tc-author">
+        <div class="tc-avatar">MR</div>
+        <div>
+          <div class="tc-name">María R.</div>
+          <div class="tc-role">Directora &middot; Clínica Dental</div>
         </div>
       </div>
     </div>
-
+    <div class="testimonial-card reveal d1">
+      <div class="tc-stars" aria-label="5 estrellas">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--yellow)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--yellow)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--yellow)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--yellow)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--yellow)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="tc-quote">&ldquo;La integración de nuestras herramientas fue impecable. Ahora todo funciona como un solo sistema y hemos reducido errores un 80%.&rdquo;</p>
+      <div class="tc-author">
+        <div class="tc-avatar">JL</div>
+        <div>
+          <div class="tc-name">Javier L.</div>
+          <div class="tc-role">CEO &middot; Agencia de Marketing</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card reveal d2">
+      <div class="tc-stars" aria-label="5 estrellas">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--yellow)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--yellow)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--yellow)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--yellow)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--yellow)" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="tc-quote">&ldquo;ConsciencIA gestiona el 70% de nuestras llamadas sin intervención humana. Nuestros clientes ni notan que hablan con una IA.&rdquo;</p>
+      <div class="tc-author">
+        <div class="tc-avatar">AP</div>
+        <div>
+          <div class="tc-name">Ana P.</div>
+          <div class="tc-role">Operaciones &middot; Inmobiliaria</div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- PROCESO -->
 <section id="proceso" class="sec-process">
   <div class="sec-head">
-    <div class="tag reveal">04 &mdash; Proceso</div>
-    <h2 class="reveal d1">Como trabajamos juntos</h2>
-    <p class="sec-sub reveal d2">Un metodo probado para llevar tu negocio al siguiente nivel en semanas, no meses.</p>
+    <div class="tag reveal">05 &mdash; Proceso</div>
+    <h2 class="reveal d1">Cómo trabajamos juntos</h2>
+    <p class="sec-sub reveal d2">Un método probado para llevar tu negocio al siguiente nivel en semanas, no meses.</p>
   </div>
   <div class="steps">
     <div class="step reveal">
       <div class="step-num">01</div>
       <div class="step-box">
-        <div class="step-ico">&#128172;</div>
-        <h3>Primera Reunion</h3>
+        <div class="step-ico" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>Primera Reunión</h3>
         <p>Analizamos tus necesidades, objetivos y el estado actual de tus operaciones.</p>
       </div>
-      <div class="step-conn"></div>
     </div>
     <div class="step reveal d1">
       <div class="step-num">02</div>
       <div class="step-box">
-        <div class="step-ico">&#128269;</div>
-        <h3>Auditoria</h3>
+        <div class="step-ico" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h3>Auditoría</h3>
         <p>Evaluamos tus procesos actuales e identificamos oportunidades de mejora.</p>
       </div>
-      <div class="step-conn"></div>
     </div>
     <div class="step reveal d2">
       <div class="step-num">03</div>
       <div class="step-box">
-        <div class="step-ico">&#127919;</div>
+        <div class="step-ico" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
+        </div>
         <h3>Consulta</h3>
-        <p>Disenamos una solucion personalizada con roadmap claro y metricas definidas.</p>
+        <p>Diseñamos una solución personalizada con roadmap claro y métricas definidas.</p>
       </div>
-      <div class="step-conn"></div>
     </div>
     <div class="step reveal d3">
       <div class="step-num">04</div>
       <div class="step-box">
-        <div class="step-ico">&#128640;</div>
-        <h3>Implementacion</h3>
+        <div class="step-ico" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3>Implementación</h3>
         <p>Automatizamos y optimizamos tu sistema con soporte continuo.</p>
       </div>
     </div>
@@ -324,54 +404,52 @@
 <section id="contacto" class="sec-contact">
   <div class="contact-inner">
     <div class="contact-info">
-      <div class="tag reveal">05 &mdash; Contacto</div>
-      <h2 class="reveal d1">Listo para automatizar?</h2>
-      <p class="reveal d2">Cuentanos sobre tu negocio y te mostraremos exactamente como podemos ayudarte.</p>
+      <div class="tag reveal">06 &mdash; Contacto</div>
+      <h2 class="reveal d1">¿Listo para automatizar?</h2>
+      <p class="reveal d2">Cuéntanos sobre tu negocio y te mostraremos exactamente cómo podemos ayudarte.</p>
       <div class="cdetails reveal d3">
-        <div class="citem"><span>&#128231;</span><span>hola@automatizacionespro.com</span></div>
-        <div class="citem"><span>&#128241;</span><span>+34 600 000 000</span></div>
-        <div class="citem"><span>&#8987;</span><span>Respuesta en menos de 24h</span></div>
+        <div class="citem">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>info@automatizacionespro.com</span>
+        </div>
+        <div class="citem">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Respuesta en menos de 24h</span>
+        </div>
       </div>
     </div>
     <div class="cform-wrap reveal d2">
       <form id="cform">
         <div class="frow">
           <div class="fgroup">
-            <label>Nombre</label>
-            <input type="text" name="nombre" placeholder="Tu nombre" required>
+            <label for="cf-nombre">Nombre</label>
+            <input type="text" id="cf-nombre" name="nombre" placeholder="Tu nombre" required>
           </div>
           <div class="fgroup">
-            <label>Empresa</label>
-            <input type="text" name="empresa" placeholder="Tu empresa">
+            <label for="cf-empresa">Empresa</label>
+            <input type="text" id="cf-empresa" name="empresa" placeholder="Tu empresa">
           </div>
         </div>
         <div class="fgroup">
-          <label>Teléfono</label>
-          <input type="tel" name="telefono" placeholder="654321987" required>
+          <label for="cf-telefono">Teléfono</label>
+          <input type="tel" id="cf-telefono" name="telefono" placeholder="654 321 987" required>
         </div>
         <div class="fgroup">
-          <label>Email</label>
-          <input type="email" name="email" placeholder="tu@email.com" required>
+          <label for="cf-email">Email</label>
+          <input type="email" id="cf-email" name="email" placeholder="tu@email.com" required>
         </div>
         <div class="fgroup">
-          <label>Mensaje</label>
-          <textarea name="mensaje" placeholder="Cuentanos sobre tu proyecto..." required></textarea>
+          <label for="cf-mensaje">Mensaje</label>
+          <textarea id="cf-mensaje" name="mensaje" placeholder="Cuéntanos sobre tu proyecto..." required></textarea>
         </div>
         <button type="submit" class="btn full">Enviar mensaje &rarr;</button>
       </form>
       <div class="form-ok" id="formOk">
-        <div class="form-ok-ico">&#10003;</div>
-        <h3>Mensaje enviado!</h3>
+        <div class="form-ok-ico" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3>¡Mensaje enviado!</h3>
         <p>Te contactaremos en menos de 24 horas.</p>
-      </div>
-      <div class="nl-wrap">
-        <h4>Newsletter semanal</h4>
-        <p>Tips de automatizacion directo a tu bandeja.</p>
-        <form id="nlform" class="nl-form">
-          <input type="email" placeholder="Tu correo electronico" required>
-          <button type="submit" class="btn">Suscribirme</button>
-        </form>
-        <div class="nl-ok" id="nlOk">Suscrito correctamente! &#127881;</div>
       </div>
     </div>
   </div>
@@ -381,10 +459,10 @@
   <div class="foot-inner">
     <div class="foot-brand">
       <div class="logo">AP<span>.</span></div>
-      <p>Transformando negocios con automatizacion inteligente.</p>
+      <p>Transformando negocios con automatización inteligente.</p>
     </div>
     <div class="foot-links">
-      <a href="#quienes">Quienes Somos</a>
+      <a href="#quienes">Quiénes Somos</a>
       <a href="#servicios">Servicios</a>
       <a href="#productos">Productos</a>
       <a href="#proceso">Proceso</a>
@@ -393,7 +471,6 @@
   </div>
   <div class="foot-bottom">
     <span>&copy; 2026 Automatizaciones Pro</span>
-    <!--<span>Disenado con precision &#10022;</span>-->
   </div>
 </footer>
 

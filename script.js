@@ -16,25 +16,29 @@
     try { localStorage.setItem('ap-theme', next); } catch(e) {}
   });
 
-  /* ---- CURSOR ---- */
-  var cur = document.getElementById('cur');
-  var curf = document.getElementById('curf');
-  var mx = 0, my = 0, fx = 0, fy = 0;
+  /* ---- CURSOR (skip on touch devices) ---- */
+  var isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+  var curEl = document.getElementById('cur');
+  var curfEl = document.getElementById('curf');
 
-  document.addEventListener('mousemove', function(e) {
-    mx = e.clientX; my = e.clientY;
-    cur.style.left = mx + 'px';
-    cur.style.top  = my + 'px';
-  });
+  if (!isTouchDevice) {
+    var mx = 0, my = 0, fx = 0, fy = 0;
 
-  function animCursor() {
-    fx += (mx - fx) * 0.12;
-    fy += (my - fy) * 0.12;
-    curf.style.left = fx + 'px';
-    curf.style.top  = fy + 'px';
-    requestAnimationFrame(animCursor);
+    document.addEventListener('mousemove', function(e) {
+      mx = e.clientX; my = e.clientY;
+      curEl.style.left = mx + 'px';
+      curEl.style.top  = my + 'px';
+    });
+
+    function animCursor() {
+      fx += (mx - fx) * 0.12;
+      fy += (my - fy) * 0.12;
+      curfEl.style.left = fx + 'px';
+      curfEl.style.top  = fy + 'px';
+      requestAnimationFrame(animCursor);
+    }
+    animCursor();
   }
-  animCursor();
 
   /* ---- NAVBAR SCROLL ---- */
   var navbar = document.getElementById('navbar');
@@ -50,6 +54,7 @@
   function closeMob() {
     open = false;
     mob.classList.remove('open');
+    hbg.setAttribute('aria-expanded', 'false');
     var spans = hbg.querySelectorAll('span');
     spans[0].style.transform = '';
     spans[1].style.opacity = '';
@@ -60,6 +65,7 @@
   hbg.addEventListener('click', function() {
     open = !open;
     mob.classList.toggle('open', open);
+    hbg.setAttribute('aria-expanded', open ? 'true' : 'false');
     var spans = hbg.querySelectorAll('span');
     if (open) {
       spans[0].style.transform = 'rotate(45deg) translate(5px,5px)';
@@ -112,72 +118,137 @@
     cnts.forEach(function(c) { co.observe(c); });
   }
 
-  /* ---- PRODUCTS ACCORDION ---- */
-  var pitems = document.querySelectorAll('[data-pi]');
-  pitems.forEach(function(item) {
-    item.addEventListener('click', function() {
-      if (item.classList.contains('open')) return;
-      pitems.forEach(function(i) { i.classList.remove('open'); });
-      item.classList.add('open');
+  /* ---- PRODUCTS CAROUSEL ---- */
+  var track = document.getElementById('carouselTrack');
+  var dots = document.querySelectorAll('.car-dot');
+  var carLeft = document.getElementById('carLeft');
+  var carRight = document.getElementById('carRight');
+  var carWrap = document.querySelector('.carousel-wrap');
+  var cards = track.querySelectorAll('.pcard');
+
+  function updateCarousel() {
+    if (!track || !cards.length) return;
+
+    var scrollLeft = track.scrollLeft;
+    var maxScroll = track.scrollWidth - track.clientWidth;
+
+    // Update fade edges
+    if (scrollLeft <= 10) {
+      carWrap.classList.add('at-start');
+    } else {
+      carWrap.classList.remove('at-start');
+    }
+    if (scrollLeft >= maxScroll - 10) {
+      carWrap.classList.add('at-end');
+    } else {
+      carWrap.classList.remove('at-end');
+    }
+
+    // Update arrows
+    carLeft.classList.toggle('hidden', scrollLeft <= 10);
+    carRight.classList.toggle('hidden', scrollLeft >= maxScroll - 10);
+
+    // Update dots — find closest card to center
+    var center = scrollLeft + track.clientWidth / 2;
+    var closestIdx = 0;
+    var closestDist = Infinity;
+    cards.forEach(function(card, i) {
+      var cardCenter = card.offsetLeft + card.offsetWidth / 2;
+      var dist = Math.abs(center - cardCenter);
+      if (dist < closestDist) {
+        closestDist = dist;
+        closestIdx = i;
+      }
     });
+    dots.forEach(function(dot, i) {
+      dot.classList.toggle('active', i === closestIdx);
+    });
+  }
+
+  // Scroll to card by index
+  function scrollToCard(idx) {
+    if (!cards[idx]) return;
+    var card = cards[idx];
+    var cardCenter = card.offsetLeft + card.offsetWidth / 2;
+    var trackCenter = track.clientWidth / 2;
+    track.scrollTo({ left: cardCenter - trackCenter, behavior: 'smooth' });
+  }
+
+  track.addEventListener('scroll', updateCarousel);
+
+  carLeft.addEventListener('click', function() {
+    // Find current active dot index and go to previous
+    var activeIdx = 0;
+    dots.forEach(function(d, i) { if (d.classList.contains('active')) activeIdx = i; });
+    scrollToCard(Math.max(0, activeIdx - 1));
   });
 
-  /* ---- CONTACT FORM ---- */
+  carRight.addEventListener('click', function() {
+    var activeIdx = 0;
+    dots.forEach(function(d, i) { if (d.classList.contains('active')) activeIdx = i; });
+    scrollToCard(Math.min(cards.length - 1, activeIdx + 1));
+  });
+
+  dots.forEach(function(dot, i) {
+    dot.addEventListener('click', function() { scrollToCard(i); });
+  });
+
+  // Initial state
+  carWrap.classList.add('at-start');
+  updateCarousel();
+
+  /* ---- CONTACT FORM (single handler — sends to n8n webhook) ---- */
   var cform = document.getElementById('cform');
   var formOk = document.getElementById('formOk');
+
   if (cform) {
-    cform.addEventListener('submit', function(e) {
+    cform.addEventListener('submit', async function(e) {
       e.preventDefault();
+
       var btn = cform.querySelector('button[type="submit"]');
-      btn.textContent = 'Enviando...'; btn.disabled = true;
-      setTimeout(function() {
+      var originalText = btn.textContent;
+      btn.textContent = 'Enviando...';
+      btn.disabled = true;
+
+      var formData = new FormData(cform);
+
+      try {
+        await fetch('https://denajerautomation.app.n8n.cloud/webhook-test/form-submission', {
+          method: 'POST',
+          body: formData
+        });
+
         cform.style.display = 'none';
         formOk.classList.add('show');
-      }, 1200);
+        cform.reset();
+      } catch (error) {
+        console.error('Error enviando el formulario:', error);
+        btn.textContent = originalText;
+        btn.disabled = false;
+        // Optionally show an inline error instead of alert
+        var errorMsg = document.createElement('p');
+        errorMsg.textContent = 'Hubo un error al enviar. Inténtalo de nuevo.';
+        errorMsg.style.cssText = 'color:var(--red);font-size:.82rem;text-align:center;margin-top:8px;';
+        errorMsg.className = 'form-error-msg';
+        // Remove previous error if any
+        var prev = cform.querySelector('.form-error-msg');
+        if (prev) prev.remove();
+        cform.appendChild(errorMsg);
+      }
     });
   }
 
-  /* ---- NEWSLETTER FORM ---- */
-  var nlform = document.getElementById('nlform');
-  var nlOk = document.getElementById('nlOk');
-  if (nlform) {
-    nlform.addEventListener('submit', function(e) {
-      e.preventDefault();
-      var btn = nlform.querySelector('button');
-      btn.textContent = 'Hecho!'; btn.disabled = true;
-      nlOk.classList.add('show');
+  /* ---- SERVICE CARD TILT (skip on touch) ---- */
+  if (!isTouchDevice) {
+    document.querySelectorAll('.svc-card').forEach(function(card) {
+      card.addEventListener('mousemove', function(e) {
+        var r = card.getBoundingClientRect();
+        var x = (e.clientX - r.left) / r.width - 0.5;
+        var y = (e.clientY - r.top)  / r.height - 0.5;
+        card.style.transform = 'translateY(-4px) rotateX('+(y*-5)+'deg) rotateY('+(x*5)+'deg)';
+      });
+      card.addEventListener('mouseleave', function() { card.style.transform = ''; });
     });
   }
-
-  /* ---- SERVICE CARD TILT ---- */
-  document.querySelectorAll('.svc-card').forEach(function(card) {
-    card.addEventListener('mousemove', function(e) {
-      var r = card.getBoundingClientRect();
-      var x = (e.clientX - r.left) / r.width - 0.5;
-      var y = (e.clientY - r.top)  / r.height - 0.5;
-      card.style.transform = 'translateY(-4px) rotateX('+(y*-5)+'deg) rotateY('+(x*5)+'deg)';
-    });
-    card.addEventListener('mouseleave', function() { card.style.transform = ''; });
-  });
-
-  document.getElementById("cform").addEventListener("submit", async function(e) {
-  e.preventDefault();
-
-  const formData = new FormData(this);
-
-  try {
-    await fetch("https://denajerautomation.app.n8n.cloud/webhook-test/form-submission", {
-      method: "POST",
-      body: formData
-    });
-
-    document.getElementById("formOk").classList.add("show");
-    this.reset();
-
-  } catch (error) {
-    alert("Error enviando el formulario");
-    console.error(error);
-  }
-});
 
 })();
