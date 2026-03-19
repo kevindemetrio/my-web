@@ -123,32 +123,89 @@
   var dots = document.querySelectorAll('.car-dot');
   var carLeft = document.getElementById('carLeft');
   var carRight = document.getElementById('carRight');
+  var swipeL = document.getElementById('swipeLeft');
+  var swipeR = document.getElementById('swipeRight');
   var carWrap = document.querySelector('.carousel-wrap');
   var cards = track.querySelectorAll('.pcard');
+  var currentIdx = 0;
+  var isMobileCarousel = false;
 
-  function updateCarousel() {
-    if (!track || !cards.length) return;
+  function checkMobileCarousel() {
+    isMobileCarousel = window.innerWidth <= 1024;
+  }
+  checkMobileCarousel();
+  window.addEventListener('resize', function() {
+    checkMobileCarousel();
+    if (!isMobileCarousel) {
+      positionDesktop(currentIdx);
+    } else {
+      track.style.transform = '';
+      cards.forEach(function(c) { c.classList.remove('dimmed'); });
+      updateSwipeHints();
+    }
+  });
 
+  /* --- DESKTOP MODE: transform-based centering --- */
+  function positionDesktop(idx) {
+    if (isMobileCarousel || !cards.length) return;
+    currentIdx = idx;
+
+    var card = cards[idx];
+    var trackRect = track.getBoundingClientRect();
+    var wrapRect = carWrap.getBoundingClientRect();
+
+    // Calculate offset to center the active card
+    var cardW = card.offsetWidth;
+    var gap = 24;
+    var totalBefore = 0;
+    for (var i = 0; i < idx; i++) {
+      totalBefore += cards[i].offsetWidth + gap;
+    }
+    var centerOffset = (wrapRect.width / 2) - (cardW / 2) - totalBefore;
+    track.style.transform = 'translateX(' + centerOffset + 'px)';
+
+    // Dim non-active cards
+    cards.forEach(function(c, i) {
+      c.classList.toggle('dimmed', i !== idx);
+    });
+
+    // Update arrows
+    carLeft.classList.toggle('hidden', idx === 0);
+    carRight.classList.toggle('hidden', idx === cards.length - 1);
+
+    // Update dots
+    dots.forEach(function(d, i) {
+      d.classList.toggle('active', i === idx);
+    });
+  }
+
+  carLeft.addEventListener('click', function() {
+    if (currentIdx > 0) positionDesktop(currentIdx - 1);
+  });
+  carRight.addEventListener('click', function() {
+    if (currentIdx < cards.length - 1) positionDesktop(currentIdx + 1);
+  });
+  dots.forEach(function(dot, i) {
+    dot.addEventListener('click', function() {
+      if (!isMobileCarousel) {
+        positionDesktop(i);
+      } else {
+        // Scroll to card in mobile
+        cards[i].scrollIntoView({ behavior:'smooth', inline:'center', block:'nearest' });
+      }
+    });
+  });
+
+  /* --- MOBILE MODE: native scroll + swipe hints --- */
+  function updateSwipeHints() {
+    if (!isMobileCarousel) return;
     var scrollLeft = track.scrollLeft;
     var maxScroll = track.scrollWidth - track.clientWidth;
 
-    // Update fade edges
-    if (scrollLeft <= 10) {
-      carWrap.classList.add('at-start');
-    } else {
-      carWrap.classList.remove('at-start');
-    }
-    if (scrollLeft >= maxScroll - 10) {
-      carWrap.classList.add('at-end');
-    } else {
-      carWrap.classList.remove('at-end');
-    }
+    swipeL.style.opacity = scrollLeft <= 10 ? '0' : '';
+    swipeR.style.opacity = scrollLeft >= maxScroll - 10 ? '0' : '';
 
-    // Update arrows
-    carLeft.classList.toggle('hidden', scrollLeft <= 10);
-    carRight.classList.toggle('hidden', scrollLeft >= maxScroll - 10);
-
-    // Update dots — find closest card to center
+    // Update dots based on scroll position
     var center = scrollLeft + track.clientWidth / 2;
     var closestIdx = 0;
     var closestDist = Infinity;
@@ -160,42 +217,25 @@
         closestIdx = i;
       }
     });
-    dots.forEach(function(dot, i) {
-      dot.classList.toggle('active', i === closestIdx);
+    dots.forEach(function(d, i) {
+      d.classList.toggle('active', i === closestIdx);
     });
   }
 
-  // Scroll to card by index
-  function scrollToCard(idx) {
-    if (!cards[idx]) return;
-    var card = cards[idx];
-    var cardCenter = card.offsetLeft + card.offsetWidth / 2;
-    var trackCenter = track.clientWidth / 2;
-    track.scrollTo({ left: cardCenter - trackCenter, behavior: 'smooth' });
+  track.addEventListener('scroll', updateSwipeHints);
+
+  // Keyboard support
+  carWrap.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowLeft' && currentIdx > 0) positionDesktop(currentIdx - 1);
+    if (e.key === 'ArrowRight' && currentIdx < cards.length - 1) positionDesktop(currentIdx + 1);
+  });
+
+  // Init
+  if (!isMobileCarousel) {
+    positionDesktop(0);
+  } else {
+    updateSwipeHints();
   }
-
-  track.addEventListener('scroll', updateCarousel);
-
-  carLeft.addEventListener('click', function() {
-    // Find current active dot index and go to previous
-    var activeIdx = 0;
-    dots.forEach(function(d, i) { if (d.classList.contains('active')) activeIdx = i; });
-    scrollToCard(Math.max(0, activeIdx - 1));
-  });
-
-  carRight.addEventListener('click', function() {
-    var activeIdx = 0;
-    dots.forEach(function(d, i) { if (d.classList.contains('active')) activeIdx = i; });
-    scrollToCard(Math.min(cards.length - 1, activeIdx + 1));
-  });
-
-  dots.forEach(function(dot, i) {
-    dot.addEventListener('click', function() { scrollToCard(i); });
-  });
-
-  // Initial state
-  carWrap.classList.add('at-start');
-  updateCarousel();
 
   /* ---- CONTACT FORM (single handler — sends to n8n webhook) ---- */
   var cform = document.getElementById('cform');

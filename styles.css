@@ -332,70 +332,42 @@ h1 { margin-bottom:22px; }
 .carousel-wrap {
   position:relative;
   max-width:100%;
-  overflow:visible;
+  overflow:hidden;
 }
 
 .carousel-track {
   display:flex;
   gap:24px;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  scroll-behavior:smooth;
-  -webkit-overflow-scrolling:touch;
-  padding:10px 6% 32px;
-  /* Hide scrollbar but keep scroll */
-  scrollbar-width:none;
-  -ms-overflow-style:none;
+  transition:transform .5s cubic-bezier(.4,0,.2,1);
+  padding:10px 0 32px;
+  /* Will be positioned via JS transform on desktop */
 }
-.carousel-track::-webkit-scrollbar { display:none; }
 
-/* Fade edges to hint at more content */
-.carousel-wrap::before,
-.carousel-wrap::after {
-  content:'';
-  position:absolute;
-  top:0; bottom:32px;
-  width:80px;
-  z-index:2;
-  pointer-events:none;
-  transition:opacity .3s;
-}
-.carousel-wrap::before {
-  left:0;
-  background:linear-gradient(to right, var(--surface), transparent);
-  opacity:0;
-}
-.carousel-wrap::after {
-  right:0;
-  background:linear-gradient(to left, var(--surface), transparent);
-}
-.carousel-wrap.at-end::after { opacity:0; }
-.carousel-wrap.at-start::before { opacity:0; }
-.carousel-wrap:not(.at-start)::before { opacity:1; }
+/* No fade edges — removed */
 
 /* Arrow buttons */
 .carousel-arrow {
   position:absolute;
   top:50%;
-  transform:translateY(-50%);
+  transform:translateY(-60%);
   z-index:3;
-  width:44px; height:44px;
+  width:48px; height:48px;
   border-radius:50%;
   border:1px solid var(--border);
   background:var(--bg);
   color:var(--text);
   display:flex; align-items:center; justify-content:center;
   cursor:pointer;
-  transition:background .2s, border-color .2s, opacity .3s, transform .2s;
+  transition:background .2s, border-color .2s, opacity .3s, box-shadow .2s;
   box-shadow:0 4px 16px rgba(0,0,0,.15);
 }
 .carousel-arrow:hover {
   border-color:var(--accent);
   background:var(--surface2);
-  transform:translateY(-50%) scale(1.08);
+  box-shadow:0 4px 24px var(--glow);
 }
-.carousel-arrow--left { left:16px; }
-.carousel-arrow--right { right:16px; }
+.carousel-arrow--left { left:max(16px, calc((100% - 1200px)/2 - 60px)); }
+.carousel-arrow--right { right:max(16px, calc((100% - 1200px)/2 - 60px)); }
 .carousel-arrow.hidden { opacity:0; pointer-events:none; }
 
 /* Dot indicators */
@@ -419,9 +391,34 @@ h1 { margin-bottom:22px; }
   transform:scale(1.35);
 }
 
+/* Mobile swipe hints — bouncing arrows on sides */
+.swipe-hint {
+  display:none;
+  position:absolute;
+  top:50%;
+  transform:translateY(-60%);
+  z-index:3;
+  color:var(--accent);
+  opacity:.6;
+  pointer-events:none;
+}
+.swipe-hint--left { left:6px; }
+.swipe-hint--right { right:6px; }
+.swipe-hint--left svg { animation:hintLeft 1.8s ease-in-out infinite; }
+.swipe-hint--right svg { animation:hintRight 1.8s ease-in-out infinite; }
+
+@keyframes hintLeft {
+  0%,100% { transform:translateX(0); opacity:.4; }
+  50% { transform:translateX(-6px); opacity:.9; }
+}
+@keyframes hintRight {
+  0%,100% { transform:translateX(0); opacity:.4; }
+  50% { transform:translateX(6px); opacity:.9; }
+}
+
 /* Product card */
 .pcard {
-  flex:0 0 min(420px, 80vw);
+  flex:0 0 min(440px, 80vw);
   scroll-snap-align:center;
   background:var(--bg);
   border:1px solid var(--border);
@@ -429,9 +426,14 @@ h1 { margin-bottom:22px; }
   overflow:hidden;
   display:flex;
   flex-direction:column;
-  transition:border-color .3s, transform .3s, box-shadow .3s, background .35s;
+  transition:border-color .3s, transform .3s, box-shadow .3s, background .35s, opacity .4s;
 }
-.pcard:hover {
+/* Non-active cards slightly faded on desktop */
+.pcard.dimmed {
+  opacity:.45;
+  transform:scale(.96);
+}
+.pcard:not(.dimmed):hover {
   border-color:rgba(59,130,246,.4);
   transform:translateY(-4px);
   box-shadow:0 12px 40px var(--glow);
@@ -442,6 +444,7 @@ h1 { margin-bottom:22px; }
   transition:opacity .3s, border-color .3s, transform .3s, box-shadow .3s, background .35s;
 }
 .pcard--soon:hover { opacity:1; }
+.pcard--soon.dimmed { opacity:.3; }
 
 /* Visual header */
 .pcard-visual {
@@ -698,9 +701,22 @@ footer { background:var(--surface); border-top:1px solid var(--border); padding:
   /* Contact */
   .contact-inner { grid-template-columns:1fr; gap:36px; }
 
-  /* Carousel */
-  .pcard { flex:0 0 min(380px, 78vw); }
+  /* Carousel — switch to swipe mode */
+  .carousel-track {
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    padding:10px 5% 32px;
+    scrollbar-width:none;
+    -ms-overflow-style:none;
+    transition:none;
+    transform:none !important;
+  }
+  .carousel-track::-webkit-scrollbar { display:none; }
+  .pcard { flex:0 0 min(380px, 78vw); scroll-snap-align:center; }
+  .pcard.dimmed { opacity:1; transform:none; }
   .carousel-arrow { display:none; }
+  .swipe-hint { display:block; }
 
   /* Footer links wrap */
   .foot-links { flex-wrap:wrap; gap:14px; }
@@ -785,6 +801,7 @@ footer { background:var(--surface); border-top:1px solid var(--border); padding:
   .pfeats { grid-template-columns:1fr; gap:6px; }
   .pfeat { font-size:.76rem; }
   .pcta { font-size:.82rem; padding:8px 18px; }
+  .carousel-track { padding:10px 5% 28px; }
 
   /* CONTACT */
   .contact-info h2 { font-size:clamp(1.5rem,7vw,2.2rem); }
